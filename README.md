@@ -1,16 +1,42 @@
-# React + Vite
+# React Event App with REST API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is part of the **WBS Coding School – Software Engineering** curriculum.  
+It implements a React frontend that consumes a RESTful Events API and follows the official WBS project guidelines.
 
-Currently, two official plugins are available:
+## Project Goal
+Build a React application that interacts with a REST API to create, read and manage events, including authentication and protected routes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- React (Vite)
+- React Router
+- Tailwind CSS + DaisyUI
+- RESTful API (local backend)
+- Swagger UI (API documentation)
 
-## React Compiler
+## Functional Requirements (WBS)
+- FR001 Public GitHub Repository
+- FR002 Incremental development via feature branches and PRs
+- FR003 React + Vite frontend
+- FR004 TailwindCSS styling
+- FR005 React Router with protected routes
+- FR007 Local Events API
+- FR008 Event list on home page
+- FR009 Event detail navigation
+- FR010 Event details page
+- FR011 User registration
+- FR012 User login
+- FR013 Token persistence
+- FR014 Protected routes
+- FR015 Create event (authenticated)
+- FR016 Token injection in requests
+- FR017 Error handling
+- FR018 Responsive design
+- FR019 Static deployment
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Setup
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Frontend
+```bash
+npm install
+npm run dev
+http://localhost:5173 
