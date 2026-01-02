@@ -2,7 +2,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
-} from "react-router";
+} from "react-router-dom";
 
 import { MainLayout } from "../layouts/MainLayout";
 import { RequireAuth } from "../auth/RequireAuth";
