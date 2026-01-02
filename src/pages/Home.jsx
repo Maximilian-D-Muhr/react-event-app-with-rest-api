@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { getEvents } from "../api/events";
+import { Link } from "react-router-dom";
+
 
 export function Home() {
   const [events, setEvents] = useState([]);
@@ -16,11 +18,12 @@ export function Home() {
       try {
         const data = await getEvents();
 
-        const list = Array.isArray(data)
-          ? data
-          : Array.isArray(data?.events)
-          ? data.events
-          : [];
+      const list = Array.isArray(data)
+  ? data
+  : Array.isArray(data?.results)
+  ? data.results
+  : [];
+
 
         const sorted = list.sort(
           (a, b) => new Date(a.date) - new Date(b.date)
@@ -63,16 +66,17 @@ export function Home() {
       )}
 
       {status === "success" && events.length > 0 && (
-        <ul className="grid gap-4 sm:grid-cols-2">
-          {events.map((event) => (
-            <li key={event.id} className="rounded-xl border p-4">
-              <h2 className="font-semibold">{event.title}</h2>
-              <p className="text-sm opacity-80">
-                {event.date}
-              </p>
-            </li>
-          ))}
-        </ul>
+       <ul className="grid gap-4 sm:grid-cols-2">
+  {events.map((event) => (
+    <li key={event.id} className="rounded-xl border p-4 hover:bg-base-200">
+      <Link to={`/events/${event.id}`} className="block">
+        <h2 className="font-semibold">{event.title}</h2>
+        <p className="text-sm opacity-80">{event.date}</p>
+      </Link>
+    </li>
+  ))}
+</ul>
+
       )}
     </section>
   );
