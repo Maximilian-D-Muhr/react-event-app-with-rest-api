@@ -7,3 +7,10 @@ export function getEvents() {
 export function getEventById(id) {
   return apiFetch(`/api/events/${id}`);
 }
+
+export function createEvent(eventData) {
+  return apiFetch("/api/events", {
+    method: "POST",
+    body: JSON.stringify(eventData),
+  });
+}
