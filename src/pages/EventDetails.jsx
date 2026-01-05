@@ -1,14 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getEventById } from "../api/events";
-
-function formatDate(value) {
-  try {
-    return new Date(value).toLocaleString();
-  } catch {
-    return value;
-  }
-}
+import { formatDate } from "../utils/formatDate";
 
 export function EventDetails() {
   const { id } = useParams();
