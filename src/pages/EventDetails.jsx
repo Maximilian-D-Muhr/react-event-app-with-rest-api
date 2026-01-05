@@ -46,7 +46,11 @@ export function EventDetails() {
         <Link to="/" className="btn btn-ghost btn-sm">Back</Link>
       </div>
 
-      {status === "loading" && <p>Loading...</p>}
+      {status === "loading" && (
+        <div className="flex justify-center py-8">
+          <span className="loading loading-spinner loading-lg"></span>
+        </div>
+      )}
 
       {status === "error" && (
         <div className="alert alert-error">

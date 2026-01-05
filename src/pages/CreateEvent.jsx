@@ -104,6 +104,9 @@ export function CreateEvent() {
           className="btn btn-primary w-full"
           disabled={status === "submitting"}
         >
+          {status === "submitting" && (
+            <span className="loading loading-spinner loading-sm"></span>
+          )}
           {status === "submitting" ? "Creating..." : "Create Event"}
         </button>
       </form>
