@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { signIn } from "../api/auth";
 import { setToken } from "../auth/tokenStorage";
 
 export function SignIn() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from || "/";
 
   const [formData, setFormData] = useState({
     email: "",
@@ -26,7 +28,7 @@ export function SignIn() {
     try {
       const response = await signIn(formData);
       setToken(response.token);
-      navigate("/");
+      navigate(from, { replace: true });
     } catch (err) {
       setErrorMessage(err.message);
       setStatus("error");
