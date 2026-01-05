@@ -51,7 +51,11 @@ export function Home() {
     <section className="space-y-4">
       <h1 className="text-2xl font-semibold">Events</h1>
 
-      {status === "loading" && <p>Loading events...</p>}
+      {status === "loading" && (
+        <div className="flex justify-center py-8">
+          <span className="loading loading-spinner loading-lg"></span>
+        </div>
+      )}
 
       {status === "error" && (
         <div className="alert alert-error">
