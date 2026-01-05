@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { getEvents } from "../api/events";
 import { Link } from "react-router-dom";
+import { getEvents } from "../api/events";
+import { formatDate } from "../utils/formatDate";
 
 
 export function Home() {
@@ -71,7 +72,7 @@ export function Home() {
     <li key={event.id} className="rounded-xl border p-4 hover:bg-base-200">
       <Link to={`/events/${event.id}`} className="block">
         <h2 className="font-semibold">{event.title}</h2>
-        <p className="text-sm opacity-80">{event.date}</p>
+        <p className="text-sm opacity-80">{formatDate(event.date)}</p>
       </Link>
     </li>
   ))}
