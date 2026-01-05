@@ -1,13 +1,14 @@
-import { NavLink, Outlet } from "react-router";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { clearToken, getToken } from "../auth/tokenStorage";
 
 export function MainLayout() {
   const token = getToken();
   const isAuthed = Boolean(token);
+  const navigate = useNavigate();
 
   function handleSignOut() {
     clearToken();
-    window.location.href = "/signin";
+    navigate("/signin");
   }
 
   return (

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { getEvents } from "../api/events";
 import { formatDate } from "../utils/formatDate";
 
-
 export function Home() {
   const [events, setEvents] = useState([]);
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
