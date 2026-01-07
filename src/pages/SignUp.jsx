@@ -43,7 +43,7 @@ export function SignUp() {
       )}
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="form-control">
+        <div className="form-control w-full">
           <label className="label">
             <span className="label-text">Name</span>
           </label>
@@ -52,12 +52,12 @@ export function SignUp() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="input input-bordered"
+            className="input input-bordered w-full"
             required
           />
         </div>
 
-        <div className="form-control">
+        <div className="form-control w-full">
           <label className="label">
             <span className="label-text">Email</span>
           </label>
@@ -66,12 +66,12 @@ export function SignUp() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="input input-bordered"
+            className="input input-bordered w-full"
             required
           />
         </div>
 
-        <div className="form-control">
+        <div className="form-control w-full">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
@@ -80,7 +80,7 @@ export function SignUp() {
             name="password"
             value={formData.password}
             onChange={handleChange}
-            className="input input-bordered"
+            className="input input-bordered w-full"
             minLength={6}
             required
           />

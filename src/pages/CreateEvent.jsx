@@ -34,17 +34,17 @@ export function CreateEvent() {
   }
 
   return (
-    <section className="max-w-md mx-auto space-y-4">
-      <h1 className="text-2xl font-semibold">Create Event</h1>
+    <section className="max-w-2xl mx-auto space-y-6">
+      <h1 className="text-xl sm:text-2xl font-semibold">Create Event</h1>
 
       {errorMessage && (
         <div className="alert alert-error">
-          <span>{errorMessage}</span>
+          <span className="break-words">{errorMessage}</span>
         </div>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="form-control">
+        <div className="form-control w-full">
           <label className="label">
             <span className="label-text">Title</span>
           </label>
@@ -53,40 +53,42 @@ export function CreateEvent() {
             name="title"
             value={formData.title}
             onChange={handleChange}
-            className="input input-bordered"
+            className="input input-bordered w-full"
             required
           />
         </div>
 
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Date</span>
-          </label>
-          <input
-            type="date"
-            name="date"
-            value={formData.date}
-            onChange={handleChange}
-            className="input input-bordered"
-            required
-          />
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="form-control w-full">
+            <label className="label">
+              <span className="label-text">Date</span>
+            </label>
+            <input
+              type="date"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+
+          <div className="form-control w-full">
+            <label className="label">
+              <span className="label-text">Location</span>
+            </label>
+            <input
+              type="text"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
         </div>
 
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Location</span>
-          </label>
-          <input
-            type="text"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-            className="input input-bordered"
-            required
-          />
-        </div>
-
-        <div className="form-control">
+        <div className="form-control w-full">
           <label className="label">
             <span className="label-text">Description</span>
           </label>
@@ -94,14 +96,14 @@ export function CreateEvent() {
             name="description"
             value={formData.description}
             onChange={handleChange}
-            className="textarea textarea-bordered"
-            rows={3}
+            className="textarea textarea-bordered w-full"
+            rows={4}
           />
         </div>
 
         <button
           type="submit"
-          className="btn btn-primary w-full"
+          className="btn btn-primary w-full sm:w-auto"
           disabled={status === "submitting"}
         >
           {status === "submitting" && (

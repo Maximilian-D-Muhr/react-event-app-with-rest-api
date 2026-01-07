@@ -40,55 +40,60 @@ export function EventDetails() {
   }, [id]);
 
   return (
-    <section className="space-y-4">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold">Event Details</h1>
+    <section className="space-y-6">
+      <div className="flex items-center justify-between gap-4">
+        <h1 className="text-xl sm:text-2xl font-semibold">Event Details</h1>
         <Link to="/" className="btn btn-ghost btn-sm">Back</Link>
       </div>
 
       {status === "loading" && (
-        <div className="flex justify-center py-8">
+        <div className="flex justify-center py-12">
           <span className="loading loading-spinner loading-lg"></span>
         </div>
       )}
 
       {status === "error" && (
         <div className="alert alert-error">
-          <span>{error}</span>
+          <span className="break-words">{error}</span>
         </div>
       )}
 
       {status === "success" && event && (
-        <div className="card bg-base-100 border">
-          <div className="card-body space-y-3">
+        <div className="card bg-base-100 shadow-sm border">
+          <div className="card-body space-y-4">
             <div>
-              <h2 className="card-title">{event.title}</h2>
-              <p className="text-sm opacity-80">
+              <h2 className="card-title text-lg sm:text-xl break-words">
+                {event.title}
+              </h2>
+              <p className="text-sm opacity-70">
                 {event.date && formatDate(event.date)}
               </p>
             </div>
 
-            {event.description && <p>{event.description}</p>}
+            {event.description && (
+              <p className="leading-relaxed whitespace-pre-line break-words">
+                {event.description}
+              </p>
+            )}
 
-            <div className="grid gap-2 sm:grid-cols-2">
-              <div>
-                <span className="font-semibold">Location:</span>{" "}
-                {event.location || "-"}
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="p-3 bg-base-200 rounded-lg">
+                <span className="text-sm font-semibold block mb-1">Location</span>
+                <span className="break-words">{event.location || "-"}</span>
               </div>
-              <div>
-                <span className="font-semibold">Coordinates:</span>{" "}
-                {event.latitude ?? "-"}, {event.longitude ?? "-"}
+              <div className="p-3 bg-base-200 rounded-lg">
+                <span className="text-sm font-semibold block mb-1">Coordinates</span>
+                <span>{event.latitude ?? "-"}, {event.longitude ?? "-"}</span>
               </div>
             </div>
 
-            <div className="grid gap-2 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-2 text-sm opacity-70">
               <div>
                 <span className="font-semibold">Event ID:</span> {event.id}
               </div>
               {event.organizerId != null && (
                 <div>
-                  <span className="font-semibold">Organizer ID:</span>{" "}
-                  {event.organizerId}
+                  <span className="font-semibold">Organizer ID:</span> {event.organizerId}
                 </div>
               )}
             </div>
@@ -97,8 +102,9 @@ export function EventDetails() {
       )}
 
       {status === "success" && !event && (
-        <div className="alert">
-          <span>No event found.</span>
+        <div className="text-center py-12 space-y-4">
+          <p className="text-lg opacity-70">Event not found.</p>
+          <Link to="/" className="btn btn-primary">Back to Home</Link>
         </div>
       )}
     </section>
