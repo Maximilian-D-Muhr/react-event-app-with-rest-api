@@ -1,6 +1,6 @@
 export function formatDate(value) {
   try {
-    return new Date(value).toLocaleString();
+    return new Date(value).toLocaleDateString();
   } catch {
     return value;
   }

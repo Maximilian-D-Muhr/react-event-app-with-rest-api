@@ -1,7 +1,7 @@
 import { apiFetch } from "./client";
 
 export function getEvents() {
-  return apiFetch("/api/events");
+  return apiFetch("/api/events?limit=100");
 }
 
 export function getEventById(id) {
